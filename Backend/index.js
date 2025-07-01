@@ -5,6 +5,8 @@ const cors = require('cors'); // Import CORS
 const Product =require("./db/Product")
 const Jwt =require('jsonwebtoken')
 const jwtKey='e-comm';
+require('dotenv').config();
+
 
 const app = express();
 
