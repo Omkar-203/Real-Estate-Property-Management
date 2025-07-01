@@ -12,7 +12,7 @@ const app = express();
 
 
 app.use(cors({
-    origin:["http://localhost:5000","https://merry-axolotl-70e8ed.netlify.app/signup"]
+    origin:["http://localhost:5000","https://singular-starlight-9fbc45.netlify.app"]
 })); // Use CORS middleware
 app.use(express.json());
 
