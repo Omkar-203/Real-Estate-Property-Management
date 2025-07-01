@@ -11,7 +11,7 @@ const UpdateProduct = () => {
 
     useEffect(() => {
         getProductDetails();
-    }, []); // ✅ No dependency issue
+    }, [getProductDetails]); // ✅ No dependency issue
 
     const getProductDetails = async () => {
         console.warn(params);
