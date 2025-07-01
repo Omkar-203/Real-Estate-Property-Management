@@ -14,12 +14,9 @@ app.use(cors({
 })); // Use CORS middleware
 app.use(express.json());
 
-app.get('/', (req,resp)=>{
-    resp.send({
-        activeStatus:true,
-        error: false
-    })
-})
+app.get('/', (req, res) => {
+  res.send({ message: "Backend is working!" });
+});
 
 app.post("/register", async (req, resp) => {
     console.warn(req.body);
