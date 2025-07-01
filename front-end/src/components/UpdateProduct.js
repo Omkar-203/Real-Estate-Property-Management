@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback } from 'react';
+import React, { useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 
 const UpdateProduct = () => {
@@ -9,7 +9,11 @@ const UpdateProduct = () => {
     const params = useParams();
     const navigate = useNavigate();
 
-    const getProductDetails = useCallback(async () => {
+    useEffect(() => {
+        getProductDetails();
+    }, []); // ✅ No dependency issue
+
+    const getProductDetails = async () => {
         console.warn(params);
         let result = await fetch(`http://localhost:5000/product/${params.id}`, {
             headers: {
@@ -21,11 +25,7 @@ const UpdateProduct = () => {
         setPrice(result.price);
         setCategory(result.category);
         setCompany(result.company);
-    }, [params.id]);
-
-    useEffect(() => {
-        getProductDetails();
-    }, [getProductDetails]);
+    };
 
     const updateProduct = async () => {
         console.warn(name, price, category, company);
