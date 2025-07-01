@@ -9,7 +9,9 @@ const jwtKey='e-comm';
 const app = express();
 
 
-app.use(cors()); // Use CORS middleware
+app.use(cors({
+    origin:["http://localhost:5000","https://merry-axolotl-70e8ed.netlify.app/signup"]
+})); // Use CORS middleware
 app.use(express.json());
 
 app.get('/', (req,resp)=>{
