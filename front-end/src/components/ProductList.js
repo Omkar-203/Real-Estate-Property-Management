@@ -10,7 +10,7 @@ const ProductList = () => {
 
     const getProducts = async () => {
         try {
-            const res = await fetch("http://localhost:5000/products", {
+            const res = await fetch(`${process.env.REACT_APP_BACKEND_URL}/products`, {
                 headers: {
                     authorization: `bearer ${JSON.parse(localStorage.getItem('token'))}`
                 }
@@ -25,7 +25,7 @@ const ProductList = () => {
 
     const deleteProduct = async (id) => {
         try {
-            const res = await fetch(`http://localhost:5000/product/${id}`, {
+            const res = await fetch(`${process.env.REACT_APP_BACKEND_URL}/product/${id}`, {
                 method: 'DELETE',
                 headers: {
                     authorization: `bearer ${JSON.parse(localStorage.getItem('token'))}`
@@ -33,7 +33,6 @@ const ProductList = () => {
             });
 
             if (res.ok) {
-                // Filter out the deleted product from local state
                 setProducts(prev => prev.filter(item => item._id !== id));
             } else {
                 console.error("Delete failed with status:", res.status);
@@ -47,7 +46,7 @@ const ProductList = () => {
         let key = event.target.value;
         if (key) {
             try {
-                const res = await fetch(`http://localhost:5000/search/${key}`, {
+                const res = await fetch(`${process.env.REACT_APP_BACKEND_URL}/search/${key}`, {
                     headers: {
                         authorization: `bearer ${JSON.parse(localStorage.getItem('token'))}`
                     }
