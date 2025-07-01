@@ -11,7 +11,7 @@ const UpdateProduct=()=>{
     const navigate=useNavigate();
     useEffect(()=>{
         getProductDetails();
-    },[])
+    },[getProductDetails])
 
    const getProductDetails =async()=>{
       console.warn(params);
