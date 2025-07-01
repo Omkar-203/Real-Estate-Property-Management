@@ -1,4 +1,5 @@
 import React, { useState,useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Signup = () => {  // Renamed component to start with an uppercase letter
     const [name, setName] = useState("");
