@@ -5,15 +5,13 @@ const cors = require('cors'); // Import CORS
 const Product =require("./db/Product")
 const Jwt =require('jsonwebtoken')
 const jwtKey='e-comm';
-require('dotenv').config();
+
 
 
 const app = express();
 
 
-app.use(cors({
-    origin:["http://localhost:5000","https://singular-starlight-9fbc45.netlify.app"]
-})); // Use CORS middleware
+app.use(cors()); // Use CORS middleware
 app.use(express.json());
 
 app.get('/', (req, res) => {
